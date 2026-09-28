@@ -1,0 +1,3 @@
+aoka nombres = [1, 2, 3];
+asehoy("debut");
+asehoy(nombres[10]);

@@ -1,0 +1,47 @@
+// ---- dictionnaires ----
+aoka notes = ["Rina": 15, "Soa": 12, "Tojo": 18];
+asehoy(notes["Soa"]);
+notes["Vola"] = 9;
+notes["Soa"] += 3;
+asehoy(habeny(notes));
+asehoy(misy(notes, "Tojo"));
+asehoy(misy(notes, "Nobody"));
+isaky nom amin fanalahidy(notes) {
+    asehoy(nom + " -> " + notes[nom]);
+}
+aoka codes = [1: "un", 2: "deux"];
+asehoy(codes[2]);
+
+// ---- tuples ----
+aoka point = (3, 4);
+asehoy(point[0] + point[1]);
+aoka fiche = ("Rina", 25, marina);
+asehoy(fiche[0] + " a " + fiche[1] + " ans");
+asehoy(habeny(fiche));
+andramo { point[0] = 99; } sambotra (e) { asehoy("tuple : " + e); }
+
+// ---- maths ----
+asehoy(faka(144));
+asehoy(heriny(2, 10));
+asehoy(habe(0 - 42));
+asehoy(kely(7, 3));
+asehoy(lehibe(7, 3));
+aoka a = 3; aoka b = 4;
+asehoy(faka(heriny(a, 2) + heriny(b, 2)));   // hypoténuse = 5
+
+// ---- chaînes ----
+aoka s = "  Salama Tompoko  ";
+asehoy("[" + fafao(s) + "]");
+asehoy(avo(fafao(s)));
+asehoy(ambany(fafao(s)));
+aoka mots = vaky("mangoro,akondro,voanio", ",");
+asehoy(habeny(mots));
+asehoy(mots[1]);
+asehoy(akambana(mots, " | "));
+asehoy(misy("Salama", "lam"));
+asehoy("Salama"[0]);
+
+// ---- entrée clavier ----
+asehoy("Anaranao ?");
+aoka nom = henoy();
+asehoy("Salama, " + nom + " !");

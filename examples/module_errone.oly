@@ -1,0 +1,7 @@
+asa diviser(a, b) -> isa {
+    avereno a / b;
+}
+
+asa provoque() -> isa {
+    avereno diviser(marina, 2);
+}

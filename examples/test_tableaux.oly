@@ -1,0 +1,23 @@
+aoka nombres: isa[] = [10, 20, 30];
+asehoy(nombres[1]);
+nombres[1] = 99;
+asehoy(nombres[1]);
+asehoy(habeny(nombres));
+
+ampio(nombres, 40);
+asehoy(habeny(nombres));
+asehoy(nombres[3]);
+
+aoka dernier = esory(nombres);
+asehoy(dernier);
+asehoy(habeny(nombres));
+
+asa somme(liste: isa[]) -> isa {
+    aoka total = 0;
+    isaky (aoka i = 0; i < habeny(liste); i = i + 1) {
+        total = total + liste[i];
+    }
+    avereno total;
+}
+
+asehoy(somme(nombres));

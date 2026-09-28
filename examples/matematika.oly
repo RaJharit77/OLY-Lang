@@ -1,0 +1,19 @@
+// Module "matematika" : quelques fonctions mathématiques simples.
+
+asa mitokana(x) -> isa {
+    raha x < 0 {
+        avereno 0 - x;
+    } raha tsy izany {
+        avereno x;
+    }
+}
+
+asa manasa(a, b) -> isa {
+    raha b > a {
+        avereno manasa(b, a);
+    }
+    raha b == 0 {
+        avereno a;
+    }
+    avereno manasa(b, a - b * (a / b));
+}

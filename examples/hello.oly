@@ -1,0 +1,20 @@
+// Exemple simple en OLY
+
+endrika Olona {
+    anarana: teny,
+    taona: isa,
+}
+
+asa mitombo(x) -> isa {
+    raha x > 0 {
+        avereno x + 1;
+    } raha tsy izany {
+        avereno 0;
+    }
+}
+
+aoka i = 0;
+raha mbola i < 5 {
+    asehoy(i);
+    aoka i = i + 1;
+}

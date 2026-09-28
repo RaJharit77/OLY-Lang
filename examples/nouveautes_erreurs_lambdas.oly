@@ -1,0 +1,52 @@
+// ---- try / catch ----
+andramo {
+    asehoy("avant l'erreur");
+    aoka t = [1, 2, 3];
+    asehoy(t[10]);
+    asehoy("jamais affiché");
+} sambotra (e) {
+    asehoy("erreur rattrapée : " + e);
+}
+
+asa diviser(a: isa, b: isa) -> isa {
+    raha b == 0 {
+        atsipazo "division par zéro interdite";
+    }
+    avereno a / b;
+}
+
+andramo {
+    asehoy(diviser(10, 2));
+    asehoy(diviser(1, 0));
+} sambotra (err) {
+    asehoy("échec : " + err);
+}
+
+// erreur levée profondément dans un appel imbriqué, rattrapée plus haut
+asa niveau2() { atsipazo "boom niveau 2"; }
+asa niveau1() { niveau2(); }
+andramo { niveau1(); } sambotra (m) { asehoy("attrapé depuis niveau1 : " + m); }
+
+// try imbriqués
+andramo {
+    andramo { atsipazo "interne"; } sambotra (a) { asehoy("intérieur a reçu " + a); atsipazo "relancé"; }
+} sambotra (b) { asehoy("extérieur a reçu " + b); }
+
+// ---- lambdas ----
+aoka carre = asa(x: isa) -> isa { avereno x * x; };
+asehoy(carre(7));
+
+aoka ajouter = asa(a, b) { avereno a + b; };
+asehoy(ajouter(3, 4));
+
+asa appliquer(f, valeur) {
+    avereno f(valeur);
+}
+asehoy(appliquer(carre, 9));
+asehoy(appliquer(asa(n) { avereno n + 100; }, 1));
+
+aoka ops = [asa(x) { avereno x + 1; }, asa(x) { avereno x * 2; }];
+isaky op amin ops {
+    asehoy(op(10));
+}
+asehoy(asa(z) { avereno z * 3; }(5));
