@@ -1,0 +1,33 @@
+// Test complet : fonctions, structs, methodes (fomba), boucle isaky
+
+asa fanampiana(a, b) -> isa {
+    avereno a + b;
+}
+
+endrika Olona {
+    anarana: teny,
+    taona: isa,
+}
+
+fomba Olona {
+    asa mitondraTena(ity) -> teny {
+        avereno "Miarahaba, " + ity.anarana;
+    }
+    asa mihalehibe(ity) {
+        ity.taona = ity.taona + 1;
+    }
+}
+
+aoka som = fanampiana(3, 4);
+asehoy(som);
+
+aoka rina = Olona { anarana: "Rina", taona: 20 };
+asehoy(rina.mitondraTena());
+rina.mihalehibe();
+asehoy(rina.taona);
+
+aoka i = 0;
+isaky (aoka j = 0; j < 3; j = j + 1) {
+    aoka i = i + j;
+}
+asehoy(i);

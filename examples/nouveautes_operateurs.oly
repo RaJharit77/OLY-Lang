@@ -1,0 +1,39 @@
+/* Commentaire
+   multi-ligne */
+aoka n = 10;
+n += 5;      asehoy(n);   // 15
+n -= 3;      asehoy(n);   // 12
+n *= 2;      asehoy(n);   // 24
+n /= 4;      asehoy(n);   // 6
+n %= 4;      asehoy(n);   // 2
+n++;         asehoy(n);   // 3
+n--;  n--;   asehoy(n);   // 1
+
+aoka age = 20;
+asehoy(age >= 18 ? "majeur" : "mineur");
+asehoy(age > 60 ? "senior" : age > 30 ? "adulte" : "jeune");
+
+// for-each
+aoka fruits = ["mangue", "banane", "litchi"];
+isaky f amin fruits {
+    asehoy("fruit : " + f);
+}
+aoka total = 0;
+isaky x amin [1, 2, 3, 4, 5] {
+    raha x == 3 { manohy; }
+    raha x == 5 { tapaka; }
+    total += x;
+}
+asehoy(total);   // 1+2+4 = 7
+
+// court-circuit : la 2e partie ne doit PAS s'exécuter
+asa bavard() -> marina {
+    asehoy("  (bavard appelé)");
+    avereno marina;
+}
+asehoy("test sy :");
+aoka r1 = diso sy bavard();
+asehoy("test na :");
+aoka r2 = marina na bavard();
+asehoy("test sans court-circuit :");
+aoka r3 = marina sy bavard();

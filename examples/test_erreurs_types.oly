@@ -1,0 +1,20 @@
+endrika Olona {
+    anarana: teny,
+    taona: isa,
+}
+
+asa fanampiana(a: isa, b: isa) -> isa {
+    avereno a + b;
+}
+
+// Erreur 1 : type de variable annoncé vs valeur réelle
+aoka x: isa = "izaho tsy isa";
+
+// Erreur 2 : mauvais nombre d'arguments
+aoka y = fanampiana(1, 2, 3);
+
+// Erreur 3 : champ manquant + champ inconnu
+aoka rina = Olona { anarana: "Rina" };
+
+// Erreur 4 : accès à un champ inexistant
+asehoy(rina.adiresy);

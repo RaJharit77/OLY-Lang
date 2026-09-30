@@ -1,0 +1,72 @@
+// ---- fermeture simple : capture par valeur au moment de la creation ----
+asa faireCompteur(depart: isa) {
+    aoka compte = depart;
+    avereno asa() -> isa {
+        compte += 1;
+        avereno compte;
+    };
+}
+
+aoka c1 = faireCompteur(0);
+asehoy(c1());   // 1
+asehoy(c1());   // 2
+asehoy(c1());   // 3
+
+aoka c2 = faireCompteur(100);
+asehoy(c2());   // 101 (compteur independant de c1)
+asehoy(c1());   // 4  (c1 continue sa propre serie)
+
+// ---- capture de plusieurs variables, et mutation visible depuis l'exterieur ----
+asa faireAccumulateur() {
+    aoka total = 0;
+    aoka ajouter = asa(x: isa) {
+        total += x;
+    };
+    aoka lire = asa() -> isa {
+        avereno total;
+    };
+    avereno (ajouter, lire);
+}
+
+aoka paire = faireAccumulateur();
+aoka ajouter = paire[0];
+aoka lire = paire[1];
+ajouter(5);
+ajouter(10);
+asehoy(lire());   // 15 : les deux lambdas partagent bien la meme cellule 'total'
+
+// ---- generateur de fonctions (fabrique de multiplicateurs) ----
+asa fabriqueMultiplicateur(facteur: isa) {
+    avereno asa(x: isa) -> isa { avereno x * facteur; };
+}
+aoka double = fabriqueMultiplicateur(2);
+aoka triple = fabriqueMultiplicateur(3);
+asehoy(double(21));  // 42
+asehoy(triple(21));  // 63
+
+// ---- fermeture imbriquee (capture transitive) ----
+asa externe() {
+    aoka a = 1;
+    avereno asa() {
+        aoka b = 2;
+        avereno asa() -> isa {
+            avereno a + b;   // capture transitive : 'a' vient de externe(), 'b' du niveau intermediaire
+        };
+    };
+}
+aoka f = externe()();
+asehoy(f());  // 3
+
+// ---- fermeture utilisee dans une boucle : verifie l'independance par iteration ----
+// (a l'interieur d'une fonction : chaque iteration doit capturer SA PROPRE variable)
+asa fabriquerListe() {
+    aoka fabriques = [];
+    isaky i amin [1, 2, 3] {
+        aoka val = i;
+        ampio(fabriques, asa() -> isa { avereno val * 10; });
+    }
+    avereno fabriques;
+}
+isaky g amin fabriquerListe() {
+    asehoy(g());   // 10, 20, 30 : chaque lambda garde SA propre valeur de 'val'
+}
